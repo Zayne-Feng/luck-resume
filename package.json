@@ -1,0 +1,66 @@
+{
+  "name": "luck-resume",
+  "version": "0.1.0",
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "homepage": "https://resume.lunelu.com/",
+  "type": "module",
+  "packageManager": "pnpm@10.26.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "prepare:assets": "node scripts/prepare-local-assets.mjs",
+    "build": "pnpm run prepare:assets && tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "preview:secure": "node scripts/serve-build.mjs",
+    "start": "node scripts/serve-build.mjs",
+    "setup:backend": "node scripts/setup-backend.mjs",
+    "start:api": "node --env-file=.env.local scripts/serve-api.mjs",
+    "start:tunnel": "cloudflared tunnel --no-autoupdate run --token-file .cloudflared/luck-token.txt",
+    "test:parity": "node scripts/test-parity.mjs",
+    "test:improvements": "node scripts/test-local-improvements.mjs",
+    "test:editor-freedom": "node scripts/test-editor-freedom.mjs",
+    "test:functional": "node scripts/test-functional-improvements.mjs",
+    "test:repairs": "node scripts/test-functional-repairs.mjs",
+    "release:check": "node scripts/release-preflight.mjs",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:browser": "node tests/browser.mjs && node --experimental-strip-types tests/flexible.browser.mjs",
+    "test:matrix": "node --experimental-strip-types tests/browser-matrix.mjs",
+    "test:document-import": "node tests/document-import.browser.mjs",
+    "test:exports": "node tests/completion-exports.browser.mjs",
+    "format": "prettier --write src tests index.html vite.config.ts package.json tsconfig.json wrangler.jsonc README.md"
+  },
+  "dependencies": {
+    "@tiptap/extension-table": "3.21.0",
+    "@tiptap/react": "3.21.0",
+    "@tiptap/starter-kit": "3.21.0",
+    "docx": "9.5.1",
+    "html-to-image": "1.11.13",
+    "jspdf": "4.2.1",
+    "lucide-react": "0.379.0",
+    "marked": "17.0.1",
+    "parse5": "8.0.0",
+    "pdfjs-dist": "6.5.438",
+    "playwright": "1.58.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tesseract.js": "7.0.0",
+    "zustand": "4.5.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@vitejs/plugin-react": "5.1.4",
+    "prettier": "3.6.2",
+    "typescript": "5.7.3",
+    "vite": "7.3.1"
+  }
+}
