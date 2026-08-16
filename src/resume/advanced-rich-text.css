@@ -1,0 +1,143 @@
+.rich-advanced {
+  border-top: 1px solid var(--border, #dce2dd);
+}
+.rich-advanced > summary {
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.rich-advanced .rich-toolbar {
+  border-top: 0;
+}
+.rich-editor .rich-toolbar button {
+  width: auto;
+  min-width: 29px;
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+.rich-advanced .rich-toolbar input {
+  width: 140px;
+  min-height: 28px;
+}
+.resume-document .resume-entry .resume-rich :is(h1, h2, h3, h4),
+.rich-input :is(h1, h2, h3, h4) {
+  margin: 0.7em 0 0.35em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-weight: 700;
+  line-height: 1.35;
+  break-after: avoid;
+}
+.resume-document .resume-entry .resume-rich h1,
+.rich-input h1 {
+  font-size: 1.6em;
+}
+.resume-document .resume-entry .resume-rich h2,
+.rich-input h2 {
+  font-size: 1.4em;
+}
+.resume-document .resume-entry .resume-rich h3,
+.rich-input h3 {
+  font-size: 1.2em;
+}
+.resume-document .resume-entry .resume-rich h4,
+.rich-input h4 {
+  font-size: 1.05em;
+}
+.resume-rich blockquote,
+.rich-input blockquote {
+  margin: 0.6em 0;
+  padding: 0.2em 0 0.2em 0.9em;
+  border-left: 3px solid var(--resume-accent, #b6c8bd);
+  overflow-wrap: anywhere;
+}
+.resume-rich code,
+.rich-input code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.9em;
+  background: #eff2ef;
+  border-radius: 3px;
+  padding: 0.08em 0.25em;
+}
+.resume-rich pre,
+.rich-input pre {
+  margin: 0.7em 0;
+  padding: 0.7em;
+  background: #eff2ef;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 2;
+  line-height: 1.45;
+}
+.resume-rich pre code,
+.rich-input pre code {
+  padding: 0;
+  background: none;
+}
+.resume-rich hr,
+.rich-input hr {
+  border: 0;
+  border-top: 1px solid #b8c3ba;
+  margin: 0.9em 0;
+}
+.resume-rich :is(sup, sub),
+.rich-input :is(sup, sub) {
+  font-size: 0.75em;
+  line-height: 0;
+}
+.resume-rich :is(p, h1, h2, h3, h4),
+.rich-input :is(p, h1, h2, h3, h4) {
+  white-space: pre-wrap;
+}
+.rich-input :is(code, pre),
+.ai-structured-preview :is(code, pre) {
+  background: var(--color-mint-soft);
+  color: var(--color-ink);
+}
+.resume-rich table,
+.rich-input table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0.7em 0;
+  overflow-wrap: anywhere;
+}
+.resume-rich :is(td, th),
+.rich-input :is(td, th) {
+  border: 1px solid #c6d2cc;
+  padding: 0.35em 0.5em;
+  vertical-align: top;
+  min-width: 40px;
+  position: relative;
+}
+.resume-rich th,
+.rich-input th {
+  background: #e3eee7;
+  font-weight: 600;
+  text-align: left;
+}
+.rich-input .selectedCell::after {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background: #a8c7d94d;
+  pointer-events: none;
+}
+.rich-input .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #9dbbb0;
+  pointer-events: none;
+}
+.rich-input.resize-cursor {
+  cursor: col-resize;
+}
+.rich-input .tableWrapper {
+  overflow-x: auto;
+}
