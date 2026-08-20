@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Luck Sans';
+  src: url('/fonts/luck-sans.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Luck WenKai';
+  src: url('/fonts/luck-wenkai.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Luck XiaoWei';
+  src: url('/fonts/luck-xiaowei.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Luck Serif';
+  src: url('/fonts/luck-serif.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

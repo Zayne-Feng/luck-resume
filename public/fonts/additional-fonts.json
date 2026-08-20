@@ -1,0 +1,20 @@
+[
+  {
+    "family": "wenkai",
+    "source": "https://github.com/google/fonts/blob/29b4ec6df2522a8aee279414b78a07910b065874/ofl/lxgwwenkaitc/LXGWWenKaiTC-Regular.ttf",
+    "sourceSha256": "4fcc5aec11cbbf737b0cfab7b63796f7f280087a7a656b2f13342cd5e5318d95",
+    "file": "luck-wenkai.woff2",
+    "bytes": 4921452,
+    "unicodeMappings": 22401,
+    "sha256": "fbc232e9f415358765cb828d0c89259afa6fc8ef22f15f7679cd3878ded746c2"
+  },
+  {
+    "family": "xiaowei",
+    "source": "https://github.com/google/fonts/blob/29b4ec6df2522a8aee279414b78a07910b065874/ofl/zcoolxiaowei/ZCOOLXiaoWei-Regular.ttf",
+    "sourceSha256": "a42b620140f493db42f741351dfbf343c0936d58588ee8004b8b2a218d997ff1",
+    "file": "luck-xiaowei.woff2",
+    "bytes": 2632784,
+    "unicodeMappings": 7016,
+    "sha256": "aca44bc6a3a0d49ab36119b591a8bdf20b57d9b1b1a6661aad25e6bdd1680648"
+  }
+]

@@ -1,0 +1,76 @@
+:root {
+  --font-body: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  --font-serif: 'Songti SC', 'STSong', 'SimSun', serif;
+  --color-paper: #fffefd;
+  --color-background: #f7f6f3;
+  --color-sidebar: #f3f6f1;
+  --color-ink: #303a36;
+  --color-ink-strong: #202925;
+  --color-muted: #68716b;
+  --color-rule: #e1e5df;
+  --color-input-edge: #89978f;
+  --color-mint: #c9dfd1;
+  --color-mint-soft: #e5efe7;
+  --color-mint-ink: #314e3e;
+  --color-primary-hover: #b9d5c3;
+  --color-primary-active: #accbb7;
+  --color-lilac: #e6e0ef;
+  --color-lilac-deep: #c4b3d7;
+  --color-lilac-soft: #f0ecf5;
+  --color-pink: #f1dfe4;
+  --color-blue: #dfe7f1;
+  --color-butter: #f4ebce;
+  --color-peach: #f1e1d2;
+  --color-preview: #efedf1;
+  --color-danger: #793b3b;
+  --color-danger-soft: #f6e6e5;
+  --color-focus: #3d7258;
+  --color-overlay: #26332c55;
+  --color-shadow: #2b3c3010;
+  --color-paper-shadow: #35303e17;
+  --color-transparent: transparent;
+  --color-print-paper: #ffffff;
+  --color-print-ink: #252b28;
+  --color-print-muted: #4e5751;
+  --color-print-rule: #d6dcd7;
+  --radius-control: 8px;
+  --radius-panel: 14px;
+  --dur-short: 140ms;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-paper: #252d2a;
+  --color-background: #1a211e;
+  --color-sidebar: #242f28;
+  --color-ink: #e0e8e1;
+  --color-ink-strong: #f1f5ef;
+  --color-muted: #a5b3a8;
+  --color-rule: #455149;
+  --color-input-edge: #788d7e;
+  --color-mint: #405f4b;
+  --color-mint-soft: #2e4335;
+  --color-mint-ink: #b4d9bd;
+  --color-primary-hover: #4b7058;
+  --color-primary-active: #567f63;
+  --color-lilac: #4d445c;
+  --color-lilac-deep: #8e7aab;
+  --color-lilac-soft: #352f40;
+  --color-pink: #523b46;
+  --color-blue: #354758;
+  --color-butter: #514a30;
+  --color-peach: #564332;
+  --color-preview: #1f2529;
+  --color-danger: #f0b3b0;
+  --color-danger-soft: #503536;
+  --color-focus: #a9d4b4;
+  --color-overlay: #090f0bb3;
+  --color-shadow: #00000033;
+  --color-paper-shadow: #00000040;
+}
+
+@media print {
+  :root[data-theme] {
+    color-scheme: light;
+  }
+}

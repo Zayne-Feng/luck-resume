@@ -1,0 +1,37 @@
+.icon-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-picker select {
+  flex: 1;
+  min-width: 0;
+}
+.contributions-editor > :not(summary) {
+  margin-top: 12px;
+}
+.contributions-help pre {
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.contributions-preview {
+  padding: 12px;
+  border: 1px solid var(--color-rule);
+  border-radius: 10px;
+}
+.contributions-preview-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 10px);
+  gap: 3px;
+  margin: 10px 0;
+}
+.contributions-preview-days span {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--color-rule);
+}
+.contributions-preview-days span[data-active='true'] {
+  background: var(--color-focus);
+}
