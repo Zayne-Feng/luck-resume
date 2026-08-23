@@ -1,0 +1,41 @@
+﻿.image-acquisition {
+  padding: 10px;
+  border: 1px dashed var(--border, #d6d6d6);
+  border-radius: 8px;
+  margin: 10px 0;
+}
+.image-acquisition[data-dragging] {
+  border-color: var(--accent, #6f6253);
+  background: color-mix(in srgb, var(--accent, #6f6253) 8%, transparent);
+}
+.image-acquisition:focus-visible {
+  outline: 2px solid var(--accent, #6f6253);
+  outline-offset: 2px;
+}
+.image-url-input {
+  margin-top: 8px;
+}
+.image-url-input summary {
+  cursor: pointer;
+}
+.logo-search-results {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0;
+}
+.logo-search-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--border, #d6d6d6);
+  border-radius: 6px;
+}
+.logo-search-result > span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.logo-search-result a {
+  color: inherit;
+  font-size: 12px;
+}

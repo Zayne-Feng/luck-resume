@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { createDocument, createEntry } from '../src/resume/model.ts';
+import { replaceAcquiredImage } from '../src/resume/acquiredImage.ts';
+test('image acquisition applies to its original target only while the previous image matches', () => {
+  const document = createDocument();
+  document.profile.photo = 'before';
+  assert.equal(replaceAcquiredImage(document, { kind: 'photo' }, 'before', 'next'), true);
+  document.profile.photo = '';
+  assert.equal(replaceAcquiredImage(document, { kind: 'photo' }, 'before', 'late'), false);
+  assert.equal(document.profile.photo, '');
+  const section = document.sections[0];
+  const entry = createEntry();
+  entry.logo = 'original';
+  section.items = [entry];
+  const target = { kind: 'logo' as const, sectionId: section.id, entryId: entry.id };
+  assert.equal(replaceAcquiredImage(document, target, 'original', 'next'), true);
+  entry.logo = 'removed-or-replaced';
+  assert.equal(replaceAcquiredImage(document, target, 'original', 'late'), false);
+  section.items = [];
+  assert.equal(replaceAcquiredImage(document, target, 'original', 'late'), false);
+});
