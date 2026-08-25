@@ -1,0 +1,72 @@
+.document-import-panel {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.document-import-panel h3,
+.document-import-panel h4,
+.document-import-panel p {
+  margin: 0;
+}
+
+.document-import-file {
+  overflow-wrap: anywhere;
+}
+
+.document-import-options,
+.document-import-review,
+.document-import-page,
+.document-import-password,
+.document-import-progress,
+.document-import-missing {
+  display: grid;
+  gap: 12px;
+}
+
+.document-import-options {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--color-rule);
+  border-radius: 10px;
+}
+
+.document-import-options > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.document-import-options input[type='radio'],
+.document-import-page input[type='checkbox'] {
+  width: auto;
+}
+
+.document-import-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 12px;
+}
+
+.document-import-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.document-import-panel textarea {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.document-import-progress progress {
+  width: 100%;
+}
+
+.document-import-missing {
+  padding: 12px;
+  border: 1px solid var(--color-rule);
+  border-radius: 10px;
+}
