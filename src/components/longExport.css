@@ -1,0 +1,24 @@
+.long-export-panel .long-export-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+.long-export-panel progress {
+  max-width: 100%;
+  accent-color: var(--color-mint-ink);
+}
+
+.long-export-panel .long-export-result ul {
+  padding-left: 20px;
+  margin: 8px 0 0;
+}
+
+.long-export-panel .long-export-result a {
+  overflow-wrap: anywhere;
+  color: var(--color-ink-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
