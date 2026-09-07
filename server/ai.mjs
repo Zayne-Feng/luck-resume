@@ -283,6 +283,24 @@ function makeGeneration(config, body) {
 function outputText(data, protocol, streaming = false) {
   if (data.error || data.type === 'error' || data.type === 'response.failed')
     throw fail('Provider interrupted generation.', 502);
+  const reason =
+    protocol === 'chat'
+      ? data.choices?.[0]?.finish_reason
+      : protocol === 'gemini'
+        ? data.candidates?.[0]?.finishReason
+        : protocol === 'anthropic'
+          ? streaming
+            ? data.delta?.stop_reason
+            : data.stop_reason
+          : undefined;
+  const completed = protocol === 'gemini' ? 'STOP' : protocol === 'anthropic' ? 'end_turn' : 'stop';
+  if (
+    (reason && reason !== completed) ||
+    (protocol === 'responses' &&
+      (data.type === 'response.incomplete' ||
+        (!streaming && data.status && data.status !== 'completed')))
+  )
+    throw fail('Provider interrupted generation.', 502);
   if (protocol === 'gemini')
     return (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
   if (protocol === 'anthropic')
@@ -334,20 +352,6 @@ function normalizedStream(response, protocol) {
           if (protocol === 'anthropic' && data.type === 'message_stop') complete = true;
           if (protocol === 'gemini' && data.candidates?.[0]?.finishReason === 'STOP')
             complete = true;
-          if (
-            (protocol === 'responses' && data.type === 'response.incomplete') ||
-            (protocol === 'chat' &&
-              data.choices?.[0]?.finish_reason &&
-              data.choices[0].finish_reason !== 'stop') ||
-            (protocol === 'gemini' &&
-              data.candidates?.[0]?.finishReason &&
-              data.candidates[0].finishReason !== 'STOP') ||
-            (protocol === 'anthropic' &&
-              data.type === 'message_delta' &&
-              data.delta?.stop_reason &&
-              data.delta.stop_reason !== 'end_turn')
-          )
-            throw fail('Provider interrupted generation.', 502);
           const delta = outputText(data, protocol, true);
           if (delta) send({ delta });
         };

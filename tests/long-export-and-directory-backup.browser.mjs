@@ -3,7 +3,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 
-const baseURL = process.env.LUCK_TEST_URL || 'http://127.0.0.1:5176';
+const baseURL = process.env.LUCK_TEST_URL || 'http://127.0.0.1:5188';
 const fonts = (process.env.LUCK_EXPORT_FONTS || 'sans,serif,wenkai,xiaowei').split(',');
 let server;
 try {
@@ -17,7 +17,7 @@ try {
       '--host',
       '127.0.0.1',
       '--port',
-      '5176',
+      '5188',
       '--strictPort',
     ],
     { cwd: fileURLToPath(new URL('..', import.meta.url)), windowsHide: true, stdio: 'ignore' },

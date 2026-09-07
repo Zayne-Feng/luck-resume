@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+  <a href="https://resume.lunelu.com/"><strong>Open app ↗</strong></a> ·
   <a href="#features">Features</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#development">Development</a> ·
@@ -177,11 +178,11 @@ features. Static editing and local backups remain available when the backend
 is offline. Follow the [Tunnel deployment guide](docs/tunnel.md) to configure
 Cloudflare, upload the proxy secret, and publish the frontend.
 
-The configured application origin is **[resume.lunelu.com](https://resume.lunelu.com/)**,
-under **[lunelu.com](https://lunelu.com/)**. Hosting, DNS, and HTTPS must be
-configured before the application is available there. Asset paths assume the
-root of an origin; hosting under a repository subpath requires configuration
-changes. See the [deployment guide](docs/deployment.md) for details.
+The live application is **[resume.lunelu.com](https://resume.lunelu.com/)**,
+under **[lunelu.com](https://lunelu.com/)**. Its footer links back to this README.
+Self-hosted deployments must configure their own hosting, DNS, and HTTPS. Asset
+paths assume the root of an origin; hosting under a repository subpath requires
+configuration changes. See the [deployment guide](docs/deployment.md) for details.
 
 To package a completed build on Windows:
 

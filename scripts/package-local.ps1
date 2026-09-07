@@ -28,4 +28,4 @@ $manifest = @(Get-ChildItem -LiteralPath $packageRoot -File -Recurse | Sort-Obje
 })
 $manifest | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $projectRoot '.cache/runtime-manifest.json') -Encoding UTF8
 Compress-Archive -Path (Join-Path $packageRoot '*') -DestinationPath (Join-Path $projectRoot '.cache/luck-resume-local.zip') -Force
-Write-Output "Prepared local runtime archive with $($manifest.Count) files. Nothing published."
+Write-Output "Prepared local runtime archive with $($manifest.Count) files."

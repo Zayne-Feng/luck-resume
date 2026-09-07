@@ -1,4 +1,4 @@
-export const rootParity: Record<string, string> = {
+export const workspaceFeaturesEnglish: Record<string, string> = {
   自动适配一页: 'Fit one page automatically',
   '随内容变化自动调整显示比例，保留原始字号与间距。':
     'Adjust the display scale as content changes, keeping the original font sizes and spacing.',

@@ -4,7 +4,7 @@ import { ArrowUpRight, Check } from 'lucide-react';
 import { accents, createDocument, templates, type TemplateId } from '../resume/model.ts';
 import { Thumbnail } from './PreviewPanel';
 import { Button, Dialog } from './ui';
-import './parity.css';
+import './templateControls.css';
 
 export default function Templates({
   selected,

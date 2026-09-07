@@ -264,6 +264,16 @@ svg {
   padding: 32px 28px 0;
   margin: 0 auto;
 }
+.project-footer {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1488px;
+  margin: 0 auto;
+  padding: 12px 28px 24px;
+}
+.project-footer a {
+  min-height: 32px;
+}
 .workspace-heading,
 .page-heading {
   display: flex;

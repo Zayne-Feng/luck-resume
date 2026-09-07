@@ -3,6 +3,7 @@ import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useSta
 import { flushSync } from 'react-dom';
 import {
   ArrowUpRight,
+  BookOpen,
   Check,
   CheckCheck,
   CircleHelp,
@@ -734,6 +735,19 @@ export default function App() {
               </>
             )}
           </main>
+          <footer className="project-footer">
+            <a
+              className="text-button"
+              href="https://github.com/Zayne-Feng/luck-resume/blob/main/README.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('项目文档（新标签页）')}
+            >
+              <BookOpen size={15} aria-hidden="true" />
+              {t('项目文档')}
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </footer>
           <input
             ref={importInput}
             type="file"

@@ -1,4 +1,4 @@
-export const editorParity: Record<string, string> = {
+export const editorOptionsEnglish: Record<string, string> = {
   出生日期: 'Date of birth',
   求职状态: 'Employment status',
   未设置: 'Not set',

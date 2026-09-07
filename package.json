@@ -34,7 +34,7 @@
     "test:browser": "node tests/browser.mjs && node --experimental-strip-types tests/flexible.browser.mjs",
     "test:matrix": "node --experimental-strip-types tests/browser-matrix.mjs",
     "test:document-import": "node tests/document-import.browser.mjs",
-    "test:exports": "node tests/completion-exports.browser.mjs",
+    "test:exports": "node tests/long-export-and-directory-backup.browser.mjs",
     "format": "prettier --write src tests index.html vite.config.ts package.json tsconfig.json wrangler.jsonc README.md"
   },
   "dependencies": {

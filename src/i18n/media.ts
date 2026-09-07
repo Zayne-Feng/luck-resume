@@ -1,4 +1,4 @@
-﻿export const mediaParity: Record<string, string> = {
+export const mediaEnglish: Record<string, string> = {
   '正在处理图片…': 'Processing image…',
   粘贴图片: 'Paste image',
   '拖入或粘贴多张图片，每张图片生成一个条目。':

@@ -1,4 +1,4 @@
-export const localImprovements: Record<string, string> = {
+export const workspaceToolsEnglish: Record<string, string> = {
   '编辑预览中的{name}': 'Edit {name} from the preview',
   点选预览编辑: 'Select preview to edit',
   '排版比例 {percent}%': 'Layout scale {percent}%',

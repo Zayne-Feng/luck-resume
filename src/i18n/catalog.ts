@@ -1,12 +1,12 @@
-import { rootParity } from './rootParity.ts';
-import { localImprovements } from './localImprovements.ts';
+import { workspaceFeaturesEnglish } from './workspaceFeatures.ts';
+import { workspaceToolsEnglish } from './workspaceTools.ts';
 import { appearancePresets } from './appearancePresets.ts';
 import { versionHistoryEnglish } from './versionHistory.ts';
 import { layoutQualityEnglish } from './layoutQuality.ts';
 import { workspaceBackupEnglish } from './workspaceBackup.ts';
-import { aiParity } from './aiParity.ts';
-import { mediaParity } from './mediaParity.ts';
-import { editorParity } from './editorParity.ts';
+import { aiEnglish } from './ai.ts';
+import { mediaEnglish } from './media.ts';
+import { editorOptionsEnglish } from './editorOptions.ts';
 import { flexibleFieldEnglish } from './flexibleFields.ts';
 import { advancedTextEnglish } from './advancedText.ts';
 import { iconDiscoveryEnglish } from './iconDiscovery.ts';
@@ -32,6 +32,8 @@ export const english: Record<string, string> = {
 主导航|Main navigation
 只在你的设备上|On your device
 使用帮助|Help
+项目文档|Project documentation
+项目文档（新标签页）|Project documentation (opens in a new tab)
 打开导航|Open navigation
 正在打开你的工作台…|Opening your workspace…
 重新读取|Reload
@@ -842,15 +844,15 @@ PDF，是准备投递的成品|PDF is ready to send
         return [line.slice(0, separator), line.slice(separator + 1)];
       }),
   ),
-  ...rootParity,
-  ...localImprovements,
+  ...workspaceFeaturesEnglish,
+  ...workspaceToolsEnglish,
   ...appearancePresets,
   ...versionHistoryEnglish,
   ...layoutQualityEnglish,
   ...workspaceBackupEnglish,
-  ...aiParity,
-  ...mediaParity,
-  ...editorParity,
+  ...aiEnglish,
+  ...mediaEnglish,
+  ...editorOptionsEnglish,
   ...flexibleFieldEnglish,
   ...advancedTextEnglish,
   ...iconDiscoveryEnglish,

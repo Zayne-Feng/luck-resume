@@ -73,6 +73,73 @@ test('native protocols send credentials and decode real HTTP responses', async (
   }
 });
 
+test('non-streaming generation rejects interrupted output and accepts completed text', async (t) => {
+  let payload: unknown;
+  const upstream = createServer((request, response) => {
+    request.resume();
+    response.setHeader('Content-Type', 'application/json');
+    response.end(JSON.stringify(payload));
+  });
+  await new Promise<void>((resolve) => upstream.listen(0, '127.0.0.1', resolve));
+  const port = (upstream.address() as { port: number }).port;
+  const cases = [
+    {
+      protocol: 'chat',
+      interrupted: { choices: [{ message: { content: 'Partial' }, finish_reason: 'length' }] },
+      completed: { choices: [{ message: { content: 'Complete' }, finish_reason: 'stop' }] },
+    },
+    {
+      protocol: 'responses',
+      interrupted: { output_text: 'Partial', status: 'incomplete' },
+      completed: { output_text: 'Complete', status: 'completed' },
+    },
+    {
+      protocol: 'anthropic',
+      interrupted: { content: [{ type: 'text', text: 'Partial' }], stop_reason: 'max_tokens' },
+      completed: { content: [{ type: 'text', text: 'Complete' }], stop_reason: 'end_turn' },
+    },
+    {
+      protocol: 'gemini',
+      interrupted: {
+        candidates: [{ content: { parts: [{ text: 'Partial' }] }, finishReason: 'MAX_TOKENS' }],
+      },
+      completed: {
+        candidates: [{ content: { parts: [{ text: 'Complete' }] }, finishReason: 'STOP' }],
+      },
+    },
+  ];
+  try {
+    for (const fixture of cases) {
+      await t.test(fixture.protocol, async () => {
+        const body = {
+          config: {
+            protocol: fixture.protocol,
+            endpoint: `http://127.0.0.1:${port}/v1`,
+            apiKey: 'synthetic-key',
+            model: 'synthetic-model',
+          },
+          operation: 'polish',
+          text: 'Synthetic draft',
+          stream: false,
+        };
+        for (const path of ['/api/ai/generate', '/api/ai/test']) {
+          payload = fixture.interrupted;
+          let response = await handleAiRequest({ path, body, allowLocalProviders: true });
+          assert.equal(response.status, 502);
+          assert.deepEqual(await response.json(), { error: 'Provider interrupted generation.' });
+          payload = fixture.completed;
+          response = await handleAiRequest({ path, body, allowLocalProviders: true });
+          assert.equal(response.status, 200);
+          assert.deepEqual(await response.json(), { text: 'Complete' });
+        }
+      });
+    }
+  } finally {
+    upstream.closeAllConnections();
+    await new Promise<void>((resolve) => upstream.close(() => resolve()));
+  }
+});
+
 test('rejects nonlocal private endpoints and invalid operations before fetch', async () => {
   for (const endpoint of [
     'http://127.0.0.1:9000/v1',

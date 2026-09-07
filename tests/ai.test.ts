@@ -204,6 +204,10 @@ test('all four upstream protocols support catalog, connection, visual input and 
               ? { type: 'content_block_delta', delta: { text: 'Synthetic ' } }
               : { candidates: [{ content: { parts: [{ text: 'Synthetic ' }] } }] };
       res.write(`data: ${JSON.stringify(event)}\r\n\r\n`);
+      if (protocol === 'chat')
+        res.write('data: {"choices":[{"delta":{},"finish_reason":"stop"}]}\n\n');
+      else if (protocol === 'anthropic')
+        res.write('data: {"type":"message_delta","delta":{"stop_reason":"end_turn"}}\n\n');
       const terminal =
         protocol === 'chat'
           ? '[DONE]'

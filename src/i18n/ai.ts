@@ -1,4 +1,4 @@
-export const aiParity: Record<string, string> = {
+export const aiEnglish: Record<string, string> = {
   模块标题: 'Section title',
   移除条目: 'Remove entry',
   移除模块: 'Remove section',

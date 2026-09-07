@@ -29,7 +29,7 @@ Static assets provide local editing, backups, local OCR, long image/PDF output a
 
 The canonical URL, social metadata, robots and sitemap use `https://resume.lunelu.com/`. Verify them against the intended origin when configuring the deployment.
 
-The parent website is `https://lunelu.com/`. The resume subdomain is the configured deployment target, not confirmation of a live deployment. Pushing source code to GitHub does not publish this website or bind the domain. The repository URL depends on the actual GitHub owner and repository name. The current root-relative asset URLs require hosting at the root of an origin, such as the resume subdomain; a GitHub Pages project path requires an asset-path configuration change.
+The live application is [resume.lunelu.com](https://resume.lunelu.com/), under [lunelu.com](https://lunelu.com/). Source code and the README are available in [Zayne-Feng/luck-resume](https://github.com/Zayne-Feng/luck-resume). The frontend is published with Wrangler; source pushes to GitHub do not trigger a deployment. Rebuild and validate changes before following the publication commands in the [Tunnel guide](tunnel.md). Asset URLs require hosting at the root of an origin; a GitHub Pages project path requires an asset-path configuration change.
 
 ## Local runtime package
 

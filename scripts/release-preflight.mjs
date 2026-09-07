@@ -60,5 +60,5 @@ await writeFile(
   JSON.stringify({ target: 'https://resume.lunelu.com/', files }, null, 2),
 );
 console.log(
-  `Local release preflight passed: ${files.length} files, ${files.reduce((sum, file) => sum + file.bytes, 0)} bytes. No files published.`,
+  `Local release preflight passed: ${files.length} files, ${files.reduce((sum, file) => sum + file.bytes, 0)} bytes.`,
 );
