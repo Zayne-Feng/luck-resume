@@ -84,10 +84,47 @@ In a second terminal, start the connector:
 pnpm.cmd start:tunnel
 ```
 
-Keep both terminals running. Closing either process, suspending the computer, or
-losing its network connection makes backend operations unavailable. Restart the
-API and connector after rebooting. These commands do not install a system-wide
-service or modify another application's connector.
+For manual operation, keep both terminals running and restart the API and
+connector after rebooting. Closing either process, suspending the computer, or
+losing its network connection makes backend operations unavailable.
+
+## Unattended Windows hosting
+
+Use two separate Windows Task Scheduler tasks for a backend that must remain
+available after a terminal closes. Resolve full executable paths with
+`Get-Command node.exe, cloudflared.exe`; set each task's working directory to the
+Luck project root.
+
+| Task                | Executable        | Arguments                                                             |
+| ------------------- | ----------------- | --------------------------------------------------------------------- |
+| `LuckResume-API`    | `node.exe`        | `--env-file=.env.local scripts/serve-api.mjs`                         |
+| `LuckResume-Tunnel` | `cloudflared.exe` | `tunnel --no-autoupdate run --token-file .cloudflared/luck-token.txt` |
+
+Configure both tasks to start at system startup and repeat a start request every
+minute, run without a time limit, and ignore duplicate start requests. The periodic
+trigger restores an exited process even when its exit does not activate the
+failure-retry setting. Also enable a one-minute failure retry. Use an
+account that can read the private runtime files and launch the installed browser
+for PDF rendering. A passwordless S4U task can run under that account with limited
+privileges; verify both Tunnel connectivity and actual PDF output after setup.
+The credentials stay in their existing ignored files, outside task arguments.
+
+Inspect or control these tasks from PowerShell:
+
+```powershell
+Get-ScheduledTask -TaskName 'LuckResume-API', 'LuckResume-Tunnel'
+Get-ScheduledTaskInfo -TaskName 'LuckResume-API'
+Start-ScheduledTask -TaskName 'LuckResume-API'
+Start-ScheduledTask -TaskName 'LuckResume-Tunnel'
+```
+
+Disable the corresponding task with `Disable-ScheduledTask`, then stop it with
+`Stop-ScheduledTask` before running a component manually for diagnostics. Enable
+it again with `Enable-ScheduledTask` when maintenance is complete. Task Scheduler
+manages process lifetime and restarts; the computer must still remain powered on,
+awake, and connected to the network. Verify process recovery by terminating only
+the dedicated API process and checking that the task restarts it before testing
+the public health endpoint.
 
 ## Publish the frontend
 

@@ -14,6 +14,7 @@ test('release preflight creates its manifest on a clean checkout', async () => {
       'index.html': '<link rel="canonical" href="https://resume.lunelu.com/">',
       _headers:
         "/*\n  Content-Security-Policy: script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
+      _redirects: '/auth/orca/callback / 200',
       'robots.txt': 'User-agent: *',
       'sitemap.xml': '<urlset />',
       'share.svg': '<svg />',

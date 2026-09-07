@@ -23,7 +23,7 @@ The output is `dist/`. The secure preview runs on `http://127.0.0.1:5175`, appli
 
 Use `pnpm install --frozen-lockfile` and `pnpm build`, with `dist` as the output directory. A repository containing the enclosing `Luck` directory must set the build root to `Luck`; a standalone repository can use its root.
 
-`wrangler.jsonc` configures Cloudflare static assets, SPA handling, and a selective API proxy Worker. The application uses hash navigation. Preserve the included font, PDF and OCR assets, license files and security headers.
+`wrangler.jsonc` configures Cloudflare static assets and a selective API proxy Worker. The application uses hash navigation; `public/_redirects` rewrites the OAuth callback to the application entry page. Missing assets and unknown paths return 404. Preserve the callback rule, included font, PDF and OCR assets, license files and security headers.
 
 Static assets provide local editing, backups, local OCR, long image/PDF output and native printing. AI, remote-resource acquisition and direct selectable-text PDF use the Node API through the configured Tunnel. Uploading `dist/` alone does not publish the Worker or create the Tunnel; deploy the Wrangler configuration and configure its proxy token as described in the Tunnel guide.
 

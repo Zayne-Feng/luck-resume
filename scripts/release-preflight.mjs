@@ -35,6 +35,7 @@ await scan(root);
 for (const name of [
   'index.html',
   '_headers',
+  '_redirects',
   'robots.txt',
   'sitemap.xml',
   'share.svg',

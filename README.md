@@ -175,8 +175,10 @@ pnpm start:api
 After configuring the dedicated Tunnel, run `pnpm start:tunnel` in another
 terminal. Keep the computer, API process, and connector online for backend
 features. Static editing and local backups remain available when the backend
-is offline. Follow the [Tunnel deployment guide](docs/tunnel.md) to configure
-Cloudflare, upload the proxy secret, and publish the frontend.
+is offline. For unattended Windows hosting, use separate Task Scheduler tasks
+with startup triggers, periodic start checks, and failure restarts. Follow the
+[Tunnel deployment guide](docs/tunnel.md) to configure the runtime, Cloudflare,
+proxy secret, and frontend publication.
 
 The live application is **[resume.lunelu.com](https://resume.lunelu.com/)**,
 under **[lunelu.com](https://lunelu.com/)**. Its footer links back to this README.

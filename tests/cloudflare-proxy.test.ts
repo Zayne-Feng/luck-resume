@@ -13,7 +13,7 @@ const environment = {
   ASSETS: { fetch: async () => new Response('Static fixture') },
 };
 
-test('deployment enables request cancellation and reserves API routes before SPA assets', async () => {
+test('deployment enables request cancellation and reserves API routes before static assets', async () => {
   const text = await readFile(new URL('../wrangler.jsonc', import.meta.url), 'utf8');
   const parsed = ts.parseConfigFileTextToJson('wrangler.jsonc', text);
   assert.equal(parsed.error, undefined);

@@ -108,6 +108,7 @@ for (const [name, engine] of Object.entries({ chromium, firefox, webkit })) {
       (await page.locator('.local-writing-panel').textContent()).includes('标题'),
       `${name}: original custom field label`,
     );
+    await page.locator('.layout-quality-panel').waitFor();
     await page.reload();
     assert.equal(await page.locator('html').getAttribute('lang'), 'en');
     await page.getByRole('combobox', { name: 'Interface language' }).selectOption('zh');
